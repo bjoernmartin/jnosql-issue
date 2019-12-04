@@ -1,0 +1,61 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.boris59.jnosqlissue</groupId>
+        <artifactId>jnosqlissue-parent</artifactId>
+        <version>1.8.5-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>jnosqlissue-core</artifactId>
+    <packaging>jar</packaging>
+    
+    <dependencies>
+       
+        <!-- NoSQL support -->
+        <dependency>
+            <groupId>org.jnosql.artemis</groupId>
+            <artifactId>artemis-document</artifactId>
+            <version>${version.jnosql}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jnosql.diana</groupId>
+            <artifactId>couchdb-driver</artifactId>
+            <version>${version.jnosql}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+
+            <!-- Maven compile phase -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${version.maven-compiler-plugin}</version>
+                <configuration>
+                    <source>${version.javase}</source>
+                    <target>${version.javase}</target>
+                    <release>${version.javase}</release>
+                </configuration>
+            </plugin>
+
+            <!-- Maven package phase -->
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>${version.maven-resources-plugin}</version>
+            </plugin>
+        </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>*.*</include>
+                    <include>META-INF/*.*</include>
+                </includes>
+                <filtering>false</filtering>
+            </resource>
+        </resources>        
+    </build>
+
+</project>

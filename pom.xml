@@ -1,0 +1,129 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.boris59.jnosqlissue</groupId>
+    <artifactId>jnosqlissue-parent</artifactId>
+    <version>1.8.5-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <version.javase>11</version.javase>
+        <version.javaee>8.0</version.javaee>
+        
+        <version.commons-validator>1.6</version.commons-validator>
+        <version.enunciate>2.11.1</version.enunciate>
+        <version.resteasy>3.6.3.Final</version.resteasy>
+        <version.jackson2>2.9.8</version.jackson2>
+        
+        <version.jnosql>0.0.9</version.jnosql>
+        
+        <version.slf4j>1.7.26</version.slf4j>
+
+        <!-- jnosqlissue-integrationtest -->
+        <version.junit>4.12</version.junit>
+        <version.arquillian>1.4.1.Final</version.arquillian>
+        <version.wildfly-arquillian>2.2.0.Final</version.wildfly-arquillian>
+        <version.wildfly>16.0.0.Final</version.wildfly>
+        <version.wildfly-domain-url>10.0</version.wildfly-domain-url>
+        <version.sql-maven-plugin>1.5</version.sql-maven-plugin>
+
+        <version.maven-source-plugin>3.0.1</version.maven-source-plugin>
+        <version.maven-compiler-plugin>3.8.0</version.maven-compiler-plugin>
+        <version.maven-resources-plugin>3.1.0</version.maven-resources-plugin>
+        <version.maven-war-plugin>3.2.2</version.maven-war-plugin>
+        <version.maven-dependency-plugin>3.1.1</version.maven-dependency-plugin>
+        <version.maven-deploy-plugin>2.8.2</version.maven-deploy-plugin>
+
+        <version.maven-surefire-plugin>2.22.1</version.maven-surefire-plugin>
+        <version.maven-failsafe-plugin>2.22.1</version.maven-failsafe-plugin>
+
+        <version.maven-jdeps-plugin>3.1.1</version.maven-jdeps-plugin>
+        <version.jdeps-maven-plugin>0.5.1</version.jdeps-maven-plugin>
+
+    </properties>
+
+    <modules>
+        <module>jnosqlissue-core</module>
+        <module>jnosqlissue-web</module>
+        <module>jnosqlissue-integrationtest</module>
+    </modules>
+    
+    <dependencies>
+    
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>${version.javaee}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${version.slf4j}</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- NOTE: The following slf4j-simple dependency makes sure SLF4J will
+                   not complain about a missing binding during test execution 
+                   but log onto the console instead (alongside build output, 
+                   as was the case before with Log4J).
+        -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>${version.slf4j}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- REST APIs / JSON annotations -->
+        <dependency>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-client</artifactId>
+            <version>${version.resteasy}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-jackson2-provider</artifactId>
+            <version>${version.resteasy}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.jaxrs</groupId>
+            <artifactId>jackson-jaxrs-json-provider</artifactId>
+            <version>${version.jackson2}</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>${version.maven-source-plugin}</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${version.maven-compiler-plugin}</version>
+                <configuration>
+                    <source>${version.javase}</source>
+                    <target>${version.javase}</target>
+                    <release>${version.javase}</release>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

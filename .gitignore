@@ -1,0 +1,15 @@
+# See https://help.github.com/ignore-files/ for more about ignoring files.
+
+#IntelliJ
+.idea/
+*.iml
+
+#Eclipse
+*.classpath
+.externalToolBuilders/
+.metadata/
+*.project
+.settings/
+
+#Maven
+target/

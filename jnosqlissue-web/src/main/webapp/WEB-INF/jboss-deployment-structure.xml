@@ -1,0 +1,9 @@
+<jboss-deployment-structure>
+    <deployment>
+        <dependencies>
+            <!-- Ensure we find classes for Jackson 2.x from Wildfly -->
+            <module name="org.jboss.resteasy.resteasy-jackson2-provider" services="import"/>
+            <module name="com.fasterxml.jackson.jaxrs.jackson-jaxrs-json-provider" services="import"/>
+        </dependencies>
+    </deployment>
+</jboss-deployment-structure> 
