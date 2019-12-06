@@ -19,6 +19,11 @@
             <version>${version.jnosql}</version>
         </dependency>
         <dependency>
+            <groupId>org.jnosql.artemis</groupId>
+            <artifactId>artemis-configuration</artifactId>
+            <version>${version.jnosql}</version>
+        </dependency>
+        <dependency>
             <groupId>org.jnosql.diana</groupId>
             <artifactId>couchdb-driver</artifactId>
             <version>${version.jnosql}</version>
