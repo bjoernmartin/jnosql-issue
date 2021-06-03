@@ -15,7 +15,7 @@
         
         <version.commons-validator>1.6</version.commons-validator>
         <version.enunciate>2.11.1</version.enunciate>
-        <version.resteasy>3.6.3.Final</version.resteasy>
+        <version.resteasy>4.5.7.Final</version.resteasy>
         <version.jackson2>2.9.8</version.jackson2>
         
         <!-- jnosql + fixed versions -->
